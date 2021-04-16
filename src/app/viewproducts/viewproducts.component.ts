@@ -22,9 +22,9 @@ bookId: any;
     this.spinner.show();
     console.log('update.ts ' + this.bookId);
     this.us.getOneBook(this.bookId).subscribe(
-      res => {
-        console.log(res.message);
-        this.product = res.message;
+      res=>{
+        console.log(res["message"]);
+        this.product = res["message"];
         this.spinner.hide();
         console.log('viewproduct ts ' + this.product);
       },

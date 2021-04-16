@@ -78,7 +78,7 @@ vieworders(userId: string): Observable<any>{
     return this.hc.get('/admin/onebook/' + bookId);
   }
 
-  getOneUser(userId: string){
+  getOneUser(userId: string):Observable<any>{
     console.log('service' + userId);
     return this.hc.get('/user/profile/' + userId);
   }

@@ -21,7 +21,7 @@ export class UpdateproductComponent implements OnInit {
      this.spinner.show();
      this.us.getOneBook(this.bookId).subscribe(
       res => {
-            this.book = res.message;
+            this.book = res["message"];
             console.log(this.book);
             this.spinner.hide();
       },

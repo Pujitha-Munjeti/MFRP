@@ -29,7 +29,7 @@ userApiObj.get("/profile/:userId", errHandler(async(req,res,next)=>{
     console.log("printing from profile")
     let userCollectionObj=req.app.get("userCollectionObj");
      activity=await userCollectionObj.findOne({userId:req.params.userId});
-     console.log(res)
+     
     res.send({message:activity})
 }))
 
