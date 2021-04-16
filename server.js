@@ -44,7 +44,7 @@ app.use("/myorder",myorderApiObj)
 
 app.use("/wishlist",wishlistApiObj)
 
-const dburl=process.env.dburl
+const dburl=process.env.dburl;
 
 mc.connect(dburl,{useNewUrlParser:true,useUnifiedTopology:true})
 
@@ -87,4 +87,5 @@ app.use((err,req,res,next)=>{
 })
 
 //assign portnumber
-app.listen(process.env.port || 8080,()=>console.log("web server on port 5000"))
+const port=process.env.port || 8080;
+app.listen(port,()=>console.log("web server on port 5000"))
