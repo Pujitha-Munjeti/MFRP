@@ -1,0 +1,9 @@
+#card:hover {
+  
+  color:black;
+  height: 400px;
+  align-content: center;
+}
+#wishlist:visited {
+  color: rgb(197, 21, 51);
+}

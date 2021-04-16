@@ -1,0 +1,86 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-primary">
+   <div class="container-fluid">
+     <img src="https://i.postimg.cc/652svFLG/books-1.png"   alt="" width="45px" height="45px">
+     <a class="navbar-brand active" routerLink="pre"> Book Store</a>
+     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarSupportedContent">
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+           <a class="nav-link active" aria-current="page" style="color: black; text-decoration: none;" data-bs-toogle="collapse" data-bs-target="#navbarSupportedContent" routerLink="/home">Home <img src="https://i.postimg.cc/BnbCbGxd/home-1.png"   alt="" height="15px" width="15px">  </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" (click)="Logout()" style="color: black; text-decoration: none;" data-bs-toogle="collapse" data-bs-target=".navbar-collapse.show" routerLink="/login">LogOut  <img src="https://i.postimg.cc/52k5hkFb/edit.png"   alt="" height="23px" width="23px"></a>
+         </li>
+       </ul>
+     
+     </div>
+   </div>
+ </nav>
+ 
+
+
+  <div class="row mt-5 py-5" >
+   <div class="col-md-3"> </div>
+   <div class="col-md-6" style="padding-top: 30px;  border-style: solid;  border-color: rgb(64,224,208);">
+            
+               <p class="display-6 text-center text-secondary mt-2">Update User Profile</p>
+               <form class="for row g-3"   #formRef="ngForm" (ngSubmit)="formRef.form.valid&&onSubmit(formRef.value)">
+                 
+                 <div class="form-group mt-10" >
+                   <label class="form-label" for="username"><b>First Name</b></label>
+                  <input  type="text" placeholder="First Name" class="form-control" id="firstname" name="firstname" ngModel required #firstname="ngModel" [(ngModel)]="user.firstname">
+                  <span class="text-danger" *ngIf="(firstname.touched || formRef.submitted) && firstname.errors?.required">First name is required</span>
+              
+                </div>
+                <div class="form-group mt-2" >
+                   <label  class="form-label" for="username"><b>Last Name</b></label>
+                   <input  type="text"  placeholder="Last Name" class="form-control" id="lastname" name="lastname" ngModel required #lastname="ngModel"  [(ngModel)]="user.lastname">
+                   <span class="text-danger" *ngIf="(lastname.touched || formRef.submitted) && lastname.errors?.required">Last name is required</span>
+                </div>
+                <div class="form-group mt-2" >
+                   <label class="form-label" for="username"><b>Email ID</b></label>
+                   <input  type="email"  placeholder="Email Id@gmail.com" class="form-control" id="email" name="email" ngModel required #email="ngModel"  [(ngModel)]="user.email">
+                   <div *ngIf="(email.invalid&&(email.touched||email.dirty))" class="text-danger">
+                    <span class="text-danger" *ngIf="(email.errors?.required)">Email is required</span>
+                   <!-- <span *ngIf="(email.errors?.pattern)" class="text-danger">Password should contain @ ex:-abc@gmail.com</span>-->
+                    </div>
+                </div>
+               <div class="form-group mt-2" >
+                  <label class="form-label" for="username"><b>User Name</b></label>
+                  <input  type="text"  placeholder="User Name" class="form-control" id="username" name="username" ngModel required #username="ngModel"  [(ngModel)]="user.username">
+                  <span class="text-danger" *ngIf="(username.touched || formRef.submitted) && username.errors?.required">User name is required</span>
+               </div>
+               <div class="form-group mt-2" >
+                 <label class="form-label" for="number"><b>Phone number</b></label>
+                 <input  type="tel"  placeholder="User Name" class="form-control" id="number" name="number" ngModel maxlength="10" minlength="10" required #number="ngModel"  [(ngModel)]="user.number">
+                 <div class="text-danger" *ngIf="(number.invalid && (number.touched ||number.dirty))">
+                    <span *ngIf="number.errors?.required" class="text-danger">Phone Number name is required</span>
+                    <span class="text-danger" *ngIf="number.errors?.maxlength || number.errors?.minlength">Phone number shold be 10 digits</span>
+                    </div>
+              </div>
+               <div  class="form-group mt-2">
+                <label class="form-label" for="password"><b>Password</b></label>
+                <input  type="password"  placeholder="**********" class="form-control" id="password" name="password" pattern="(?=.*\d)(?=.*[A-Z])(?=.*[a-z]).{8,}" ngModel required #password="ngModel"  [(ngModel)]="user.password">
+                <div *ngIf="(password.invalid&&(password.touched||password.dirty))" class="text-danger">
+                <span class="text-danger" *ngIf="(password.errors?.required)">Password is required</span>
+                <span *ngIf="(password.errors?.pattern)" class="text-danger">Password should be 8 characters, 1 Upper case letter, 1 lower case letter and 1 digit</span>
+                </div>
+             </div>
+            
+             <div class="col p-5" style="align-content: center;">
+                          
+               <button type="submit" class="btn btn-info ">submit</button>
+                <button type="button" class="btn btn-info " ><a style="text-decoration: none;" routerLink="/profile">Cancel</a></button>
+            
+             </div>
+            </form>
+
+
+
+
+</div>
+   <div class="col-md-3"></div>
+</div>
+
